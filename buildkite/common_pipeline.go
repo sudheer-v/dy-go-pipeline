@@ -12,7 +12,7 @@ steps:
   plugins:
     - shellcheck#%s:
         files: script.sh
-	`
+`
 
 	trivyStep := fmt.Sprintf(trivyStepFormat, trivyPlugin, shellPlugin)
 	fmt.Println(trivyStep)
