@@ -11,5 +11,5 @@ func main() {
 
 	buildkite.TrivyStepGenerator(trivyPlugin, shellPlugin)
 
-	#fmt.Println("Hello World")
+	//fmt.Println("Hello World")
 }
