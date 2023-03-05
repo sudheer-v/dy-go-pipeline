@@ -2,7 +2,7 @@ package main
 
 import (
 	"dynamic-buildkite-template/buildkite"
-	"fmt"
+	//"fmt"
 )
 
 func main() {
