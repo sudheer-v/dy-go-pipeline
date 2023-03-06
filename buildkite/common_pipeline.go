@@ -1,6 +1,9 @@
 package buildkite
 
-import "fmt"
+import (
+	"fmt"
+	"io"
+)
 
 func TrivyStepGenerator(trivyPlugin, shellPlugin string, w io.Writer) error {
 	trivyStepFormat := `
