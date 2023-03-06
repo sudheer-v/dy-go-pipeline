@@ -1,11 +1,8 @@
 package buildkite
 
-import (
-	"fmt"
-	"io"
-)
+import "fmt"
 
-func TrivyStepGenerator(trivyPlugin, shellPlugin string, w io.Writer) error {
+func TrivyStepGenerator(trivyPlugin, shellPlugin string) {
 	trivyStepFormat := `
 steps:
 - command: ls
