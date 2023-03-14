@@ -1,15 +1,32 @@
 package main
 
 import (
-	"dynamic-buildkite-template/buildkite"
+	"dynamic-buildkite-template/generator"
+	"flag"
 	"fmt"
+	"log"
+	"os"
 )
 
 func main() {
-	var trivyPlugin = "v1.18.0"
-	var shellPlugin = "v1.3.0"
+	trivyPlugin := flag.String("trivyPlugin", "v1.18.0", "provide trivy plugin version")
+	shellPlugin := flag.String("shellPlugin", "v1.3.0", "provide shell plugin version")
 
-	buildkite.TrivyStepGenerator(trivyPlugin, shellPlugin)
+    flag.Usage = func() {
+        usage := `
+Usage of dynamic-buildkite-template
+This program generates trivy step for the provided options
+Options:
+`
+		fmt.Fprintf(os.Stderr, usage)
+		flag.PrintDefaults()
+	}
 
-	fmt.Println("Hello World")
+	flag.Parse()
+
+	err := generator.GenerateTrivyStep(*trivyPlugin, *shellPlugin, os.Stdout)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
+
